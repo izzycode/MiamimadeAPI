@@ -82,9 +82,12 @@ Rails.application.configure do
   end
 
   #using Sendgrid for Heroku send email
+
+#CHANGE HERE
   config.action_mailer.default_url_options = {:host => 'miami-made.herokuapp.com'}
   config.action_mailer.perform_deliveries = true
 
+#CHANGE HERE
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: "smtp.sendgrid.net",

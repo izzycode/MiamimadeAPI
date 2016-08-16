@@ -5,14 +5,20 @@ class CreateInvestors < ActiveRecord::Migration[5.0]
       t.string :email
       t.string :website
       t.string :address
-      t.string :vertical
-      t.text :description
-      t.date :founded_date
-      t.boolean :approval, default: false
+      t.string :shortdescription
 
-      t.timestamps
+      t.text :description
+      
+      t.date :founded_date
+
+      t.boolean :approval, default: false
+      t.float :latitude
+      t.float :longitude
 
       t.belongs_to :user, index: true
+      t.belongs_to :vertical, index: true
+
+      t.timestamps
     end
   end
 end

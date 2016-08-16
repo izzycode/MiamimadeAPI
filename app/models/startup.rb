@@ -1,5 +1,6 @@
 class Startup < ApplicationRecord
   belongs_to :user, optional: true
+  belongs_to :vertical
 
   validates :name, presence: true, uniqueness: true
   validates :address, presence: true
@@ -10,9 +11,6 @@ class Startup < ApplicationRecord
     self.approval = true
   end
 
-
-  enum vertical: ['Advertising', "Apps", "Biotechnology", "E-commerce", "Community and lifestyle", "Consumer Electronics", "Content and Publishing","Data","Education","Fashion","Finance","Food and Beverage","Government and Military","Hardware","Healthcare","Internet Services","Marketing","Media and entertainment","Mobile","Pharmaceuticals","Software","Real-estate"]
-
   def self.grab_location
     Startup.all.map do |startup|
       [startup.latitude, investor.longitude]
@@ -21,6 +19,7 @@ class Startup < ApplicationRecord
 
 end
 
+# enum vertical: ['Advertising', "Apps", "Biotechnology", "E-commerce", "Community and lifestyle", "Consumer Electronics", "Content and Publishing","Data","Education","Fashion","Finance","Food and Beverage","Government and Military","Hardware","Healthcare","Internet Services","Marketing","Media and entertainment","Mobile","Pharmaceuticals","Software","Real-estate"]
 # Advertising 0
 # Apps 1
 # Biotechnology 2

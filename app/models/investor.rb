@@ -1,10 +1,9 @@
 class Investor < ApplicationRecord
   belongs_to :user, optional: true
+  belongs_to :vertical
 
+  validates_presence_of :address, :description, :founded_date
   validates :name, presence: true, uniqueness:true
-  validates :address, presence: true
-  validates :description, presence: true
-  validates :founded_date, presence: true
 
   def approve
     self.approval = true

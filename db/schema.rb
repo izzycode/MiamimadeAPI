@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807184455) do
+ActiveRecord::Schema.define(version: 20160816032115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,49 +20,55 @@ ActiveRecord::Schema.define(version: 20160807184455) do
     t.string   "email"
     t.string   "website"
     t.string   "address"
-    t.string   "vertical"
+    t.string   "shortdescription"
     t.text     "description"
     t.date     "founded_date"
     t.boolean  "approval",         default: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.integer  "user_id"
-    t.string   "shortdescription"
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "user_id"
+    t.integer  "vertical_id"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.index ["user_id"], name: "index_investors_on_user_id", using: :btree
+    t.index ["vertical_id"], name: "index_investors_on_vertical_id", using: :btree
   end
 
   create_table "startups", force: :cascade do |t|
     t.string   "name"
+    t.string   "email"
     t.string   "website"
     t.string   "address"
-    t.integer  "vertical"
+    t.string   "shortdescription"
+    t.string   "stage"
     t.text     "description"
     t.date     "founded_date"
     t.boolean  "approval",         default: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.integer  "user_id"
-    t.string   "email"
-    t.string   "shortdescription"
+    t.integer  "employee_count"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "stage"
-    t.string   "employee_count"
+    t.integer  "user_id"
+    t.integer  "vertical_id"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.index ["user_id"], name: "index_startups_on_user_id", using: :btree
+    t.index ["vertical_id"], name: "index_startups_on_vertical_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.string   "token_confirmation"
     t.boolean  "admin",              default: false
     t.boolean  "email_confirmation", default: false
-    t.string   "token_confirmation"
-    t.boolean  "approval",           default: false
+    t.boolean  "approval"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  create_table "verticals", force: :cascade do |t|
+    t.string "name"
   end
 
 end
