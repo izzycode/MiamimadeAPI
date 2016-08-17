@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'verticals/create'
+
+  get 'verticals/destroy'
+
   root 'page#index'
 
   #validating user email

@@ -18,16 +18,17 @@ Vertical.create([
   {name:"marketing"},
   {name:"media and entertainment"},
   {name:"mobile"},
-  {name:"pharmaceuticals"}
+  {name:"pharmaceuticals"},
   {name:"software"},
   {name:"real estate"}
 ])
 
+random_vertical = Vertical.all.sample.id
 
 Investor.create([
-  {name:'citibank', address:'miami, FL', latitude: '25.9451', longitude: '-80.1961', shortdescription: 'company short description', founded_date: '01/02/2000', website: 'http://www.wyncode.co', approval: true, email: 'aa@aa.com', description: 'long long long description long long long descriptionlong long long descriptionlong long long description', vertical: 1},
-  {name:'Mario', address:'Miami, FL', latitude: '25.6551', longitude: '-80.1981', shortdescription: 'company short description', founded_date: '01/02/2000', website: 'http://www.wyncode.co', approval: true, email: 'aa@aa.com', description: 'long long long description long long long descriptionlong long long descriptionlong long long description', vertical: 2},
-  {name:'HSBC', address:'Orlando, FL', latitude: '26.7539', longitude: '-81.5747', shortdescription: 'company short description', founded_date: '01/02/2000', website: 'http://www.wyncode.co', approval: true, email: 'aa@aa.com', description: 'long long long description long long long descriptionlong long long descriptionlong long long description', vertical: 3},
-  {name:'Fundation', address:'Tampa, FL', latitude: '27.9354', longitude: '-82.4522', shortdescription: 'company short description', founded_date: '01/02/2000', website: 'http://www.wyncode.co', approval: true, email: 'aa@aa.com', description: 'long long long description long long long descriptionlong long long descriptionlong long long description', vertical: 2},
-  {name:'University of Miami', address:'Orlando, FL', latitude: '26.5752', longitude: '-81.9325', shortdescription: 'company short description', founded_date: '01/02/2000', website: 'http://www.wyncode.co', approval: true, email: 'aa@aa.com', description: 'long long long description long long long descriptionlong long long descriptionlong long long description', vertical: 1}
+  {name:'citibank', address:'miami, FL', latitude: 25.9451, longitude: -80.1961, shortdescription: 'company short description', founded_date: '01/02/2000', website: 'http://www.wyncode.co', approval: true, email: 'aa@aa.com', description: 'long long long description long long long descriptionlong long long descriptionlong long long description', vertical_id:random_vertical},
+  {name:'Mario', address:'Miami, FL', latitude: 25.6551, longitude: -80.1981, shortdescription: 'company short description', founded_date: '01/02/2000', website: 'http://www.wyncode.co', approval: true, email: 'aa@aa.com', description: 'long long long description long long long descriptionlong long long descriptionlong long long description', vertical_id:random_vertical},
+  {name:'HSBC', address:'Orlando, FL', latitude: 26.7539, longitude: -81.5747, shortdescription: 'company short description', founded_date: '01/02/2000', website: 'http://www.wyncode.co', approval: true, email: 'aa@aa.com', description: 'long long long description long long long descriptionlong long long descriptionlong long long description', vertical_id:random_vertical},
+  {name:'Fundation', address:'Tampa, FL', latitude: 27.9354, longitude: -82.4522, shortdescription: 'company short description', founded_date: '01/02/2000', website: 'http://www.wyncode.co', approval: true, email: 'aa@aa.com', description: 'long long long description long long long descriptionlong long long descriptionlong long long description', vertical_id:random_vertical},
+  {name:'University of Miami', address:'Orlando, FL', latitude: 26.5752, longitude: -81.9325, shortdescription: 'company short description', founded_date: '01/02/2000', website: 'http://www.wyncode.co', approval: true, email: 'aa@aa.com', description: 'long long long description long long long descriptionlong long long descriptionlong long long description', vertical_id:random_vertical}
 ])

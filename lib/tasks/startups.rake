@@ -8,7 +8,11 @@ namespace :startups do
 		CSV.foreach(file, headers: true, return_headers: false, header_converters: :symbol) do |row|
 			# CSV contains multiple verticals per startup. Your model only supports one vertical per startup.
       p row
-			vertical = row[:vertical].capitalize
+			if Vertical.pluck(:name).include?(row[:vertical])
+				vertical = Vertical.find_by_name(row[:vertical]).id
+			else
+				vertical = Vertical.create(name: row[:vertical]).id
+			end
 
 			# next if verticals.nil?
 			# vertical = verticals.is_a?(String)  ? verticals.capitalize : verticals.first.capitalize
@@ -19,7 +23,7 @@ namespace :startups do
 			latitude: row[:latitude],
 			longitude: row[:longitude],
 			description: row[:description],
-			vertical: vertical,
+			vertical_id: vertical,
 			employee_count: row[:employee_count],
 			stage: row[:stage],
 			founded_date: row[:date_added],
